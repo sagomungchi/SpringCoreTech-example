@@ -2,6 +2,7 @@ package it.topping.demoSpring;
 
 
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.Arrays;
@@ -13,7 +14,12 @@ import java.util.Arrays;
  */
 public class DemoApplication {
     public static void main(String[] args){
-        ApplicationContext context = new ClassPathXmlApplicationContext("application.xml");
+        // Java 설정파일 ApplicationContext 등록
+        ApplicationContext context = new AnnotationConfigApplicationContext(ApplicationConfig.class);
+
+        // XML 설정파일 ApplicationContext 등록
+        // ApplicationContext context = new ClassPathXmlApplicationContext("application.xml");
+
         String[] beanDefinitionNames = context.getBeanDefinitionNames();
         System.out.println(Arrays.toString(beanDefinitionNames));
 
