@@ -1,4 +1,4 @@
-package it.topping.demospring;
+package it.topping.demoSpring;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

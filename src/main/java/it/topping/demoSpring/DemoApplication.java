@@ -1,4 +1,4 @@
-package it.topping.demospring;
+package it.topping.demoSpring;
 
 
 import org.springframework.context.ApplicationContext;

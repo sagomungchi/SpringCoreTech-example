@@ -1,15 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
 
     <!-- BookService enroll bean-->
-    <bean id="bookService"
-          class="it.topping.demospring.BookService">
-        <!-- Injection of Control (from bookRepository)-->
-        <property name="bookRepository" ref="bookRepository"/>
-    </bean>
-    <bean id="bookRepository"
-          class="it.topping.demospring.BookRepository"/>
+    <!--<bean id="bookService"-->
+          <!--class="it.topping.demoSpring.BookService">-->
+        <!-- Injection of Control (from bookRepository) -->
+        <!--<property name="bookRepository" ref="bookRepository"/>-->
+    <!--</bean>-->
+    <!--<bean id="bookRepository"-->
+          <!--class="it.topping.demoSpring.BookRepository"/>-->
+    <!-- 단점 : 일일히 빈으로 등록하기 어려움 -> 한번에 빈 등록하는 방법? -> Component-Scan -->
 
+    <!-- ComponentScan -->
+    <context:component-scan base-package="it.topping.demoSpring"/>
+        <!--
+            @Component에 속하는 애노테이션들
+                1. @Service
+                2. @Controller
+                3. @Repository
+                ... 등의 애노테이션들을 추가하여 컴포넌트 스캔 가능
+
+                의존성 주입은 @Autowired나 @inject를 사용
+        -->
 </beans>

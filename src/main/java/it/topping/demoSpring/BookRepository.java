@@ -1,4 +1,4 @@
-package it.topping.demospring;
+package it.topping.demoSpring;
 
 /**
  * Created by seansin@cbnu.ac.kr.com on 09/08/2019
