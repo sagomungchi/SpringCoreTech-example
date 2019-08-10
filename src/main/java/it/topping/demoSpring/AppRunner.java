@@ -3,8 +3,13 @@ package it.topping.demoSpring;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
+import org.springframework.boot.context.event.ApplicationEnvironmentPreparedEvent;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationEventPublisher;
+import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Component;
+
+import java.util.Locale;
 
 /**
  * Created by seansin@cbnu.ac.kr.com on 10/08/2019
@@ -15,26 +20,11 @@ import org.springframework.stereotype.Component;
 public class AppRunner implements ApplicationRunner {
 
     @Autowired
-    ApplicationContext ctx;
+    ApplicationEventPublisher publisher;
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        System.out.println("PROTO");
-
-        System.out.println(ctx.getBean(Proto.class));
-        System.out.println(ctx.getBean(Proto.class));
-        System.out.println(ctx.getBean(Proto.class));
-
-        System.out.println("SINGLE");
-
-        System.out.println(ctx.getBean(Single.class));
-        System.out.println(ctx.getBean(Single.class));
-        System.out.println(ctx.getBean(Single.class));
-
-        System.out.println("Proto By Single");
-
-        System.out.println(ctx.getBean(Single.class).getProto());
-        System.out.println(ctx.getBean(Single.class).getProto());
-        System.out.println(ctx.getBean(Single.class).getProto());
+        publisher.publishEvent(new MyEvent(this, 100));
     }
 }
+
