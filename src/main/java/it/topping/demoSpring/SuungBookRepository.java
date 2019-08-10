@@ -1,5 +1,6 @@
 package it.topping.demoSpring;
 
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -7,6 +8,6 @@ import org.springframework.stereotype.Repository;
  * Blog : http://dailyworker.github.io
  * Github : http://github.com/dailyworker
  */
-@Repository
+@Repository @Primary
 public class SuungBookRepository implements BookRepository{
 }
